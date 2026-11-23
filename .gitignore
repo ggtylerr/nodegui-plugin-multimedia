@@ -1,0 +1,8 @@
+node_modules
+build
+dist
+.idea
+.yarn
+CMakeFiles
+.vscode
+compile_commands.json
