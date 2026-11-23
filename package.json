@@ -1,30 +1,46 @@
 {
   "name": "nodegui-plugin-multimedia",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "NodeGUI plugin for providing Qt Multimedia bindings",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf dist build",
     "build": "tsc && npm run build:addon",
     "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
-    "dev": "npm run build && qode dist/demo.js"
+    "dev": "npm run build && qode dist/demo.js",
+    "install": "npm run setupbinary || npm run build:addon",
+    "prepublish": "npm run clean && tsc",
+    "setupbinary": "node ./scripts/setupBinary.js"
   },
-  "author": "ggtylerr",
-  "license": "MIT",
+  "author": "ggtyler",
+  "license": "LGPL-3.0-or-later",
+  "files": [
+    "dist",
+    "!dist/demo.js",
+    "!dist/demo.d.ts",
+    "scripts/setupBinary.js",
+    "src/cpp",
+    "CMakeLists.txt"
+  ],
   "peerDependencies": {
     "@nodegui/nodegui": "*"
   },
   "dependencies": {
+    "@nodegui/artifact-installer": "^1.1.0",
     "cmake-js": "^8.0.0",
     "cross-env": "^10.1.0",
-    "node-addon-api": "^8.6.0"
+    "node-addon-api": "^8.6.0",
+    "tar": "^7.5.23"
   },
   "devDependencies": {
     "@nodegui/nodegui": "^0.74.0",
     "@types/node": "^25.5.0",
     "rimraf": "^6.1.4",
     "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "7zip-bin": "5.1.1"
   },
   "packageManager": "yarn@4.18.1",
   "prettier": {

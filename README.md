@@ -2,7 +2,7 @@
 
 This is a plugin for [NodeGui](https://docs.nodegui.org) meant to provide bindings to 
 [Qt Multimedia's Module,](https://doc.qt.io/qt-6/qtmultimedia-module.html)
-primarily developed for NEPChat and NEPTube. <!-- TODO: Add links when public. -->
+primarily developed for the future programs NEPChat and NEPTube.
 Please keep in mind that this is in early development and is not meant
 to be used in production yet.
 
@@ -87,7 +87,7 @@ as in generative AI.)
 ## Development / Contributing
 ***DO NOT*** use AI!!! [Seriously, don't.](https://codeberg.org/ethical-foss/ai-free-foss-alternatives/src/branch/main/why_not_llms.md)
 Any PRs, issues, etc. made with AI will get you ***immediately banned*** from the repo.
-Oh, and, [you might get a surprise if you try it anyways.](https://github.com/ggtylerr/nodegui-plugin-multimedia/blob/main/AGENTS.md)
+Oh, and, [you might get a surprise if you try it anyways.](https://codeberg.org/ggtyler/nodegui-plugin-multimedia/src/branch/main/AGENTS.md)
 Just *don't* use it!!!
 
 *\*Ahem.\** Anyways.
