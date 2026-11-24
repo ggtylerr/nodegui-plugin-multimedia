@@ -42,6 +42,9 @@ add_library(${PLUGIN_ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/video/qvideoframeformat_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/video/qvideosink_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/video/nvideosink.hpp"
+    # Widgets
+    "${PROJECT_SOURCE_DIR}/src/cpp/widgets/qvideowidget_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/widgets/nvideowidget.hpp"
 ) 
 
 AddPluginConfig(${PLUGIN_ADDON_NAME})
@@ -52,6 +55,7 @@ target_compile_options(${PLUGIN_ADDON_NAME} PRIVATE
 )
 
 find_package(Qt6 REQUIRED COMPONENTS Multimedia)
+find_package(Qt6 REQUIRED COMPONENTS MultimediaWidgets)
 
 target_include_directories(${PLUGIN_ADDON_NAME} PRIVATE 
     "${CMAKE_JS_INC}" 
@@ -63,5 +67,6 @@ target_link_libraries(${PLUGIN_ADDON_NAME} PRIVATE
     Qt6::Widgets
     Qt6::Gui
     Qt6::Multimedia
+    Qt6::MultimediaWidgets
 )
 

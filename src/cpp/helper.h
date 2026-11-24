@@ -20,4 +20,5 @@ class Helper {
         }
 
         static QObject* getQObjectFromValue(const Napi::Value& value);
+        static QWidget* getQWidgetFromValue(const Napi::Value& value);
 };

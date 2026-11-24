@@ -13,6 +13,7 @@
 #include "video/qvideoframe_wrap.h"
 #include "video/qvideoframeformat_wrap.h"
 #include "video/qvideosink_wrap.h"
+#include "widgets/qvideowidget_wrap.h"
 
 Napi::Object Main(Napi::Env env, Napi::Object exports) {\
     // Audio
@@ -32,6 +33,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {\
     QVideoFrameWrap::init(env, exports);
     QVideoFrameFormatWrap::init(env, exports);
     QVideoSinkWrap::init(env, exports);
+    // Widgets
+    QVideoWidgetWrap::init(env, exports);
     return exports;
 }
 
