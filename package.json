@@ -21,6 +21,7 @@
     "!dist/demo.js",
     "!dist/demo.d.ts",
     "scripts/setupBinary.js",
+    "scripts/setupMultimedia.js",
     "src/cpp",
     "CMakeLists.txt"
   ],
