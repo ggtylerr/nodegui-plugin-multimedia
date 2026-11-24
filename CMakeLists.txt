@@ -49,6 +49,21 @@ add_library(${PLUGIN_ADDON_NAME} SHARED
 
 AddPluginConfig(${PLUGIN_ADDON_NAME})
 
+# Adapted from https://github.com/sedwards2009/nodegui-plugin-qads/blob/main/CMakeLists.txt
+if (UNIX AND NOT APPLE)
+    set_target_properties(${PLUGIN_ADDON_NAME} PROPERTIES
+        INSTALL_RPATH "\$ORIGIN/../../../@nodegui/nodegui/miniqt/6.10.2/gcc_64/lib"
+    )
+    set_target_properties(${PLUGIN_ADDON_NAME} PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
+endif()
+
+if (APPLE)
+    set_target_properties(${PLUGIN_ADDON_NAME} PROPERTIES
+        INSTALL_RPATH "@loader_path/../../../@nodegui/nodegui/miniqt/6.10.2/macos/lib"
+    )
+    set_target_properties(${PLUGIN_ADDON_NAME} PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
+endif()
+
 # Shut up about QOBJECT_SIGNALS
 target_compile_options(${PLUGIN_ADDON_NAME} PRIVATE
     $<$<COMPILE_LANG_AND_ID:CXX,GNU,Clang>:-Wno-deprecated -Wno-deprecated-declarations>

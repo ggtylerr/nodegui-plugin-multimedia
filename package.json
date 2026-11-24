@@ -11,7 +11,8 @@
     "dev": "npm run build && qode dist/demo.js",
     "install": "npm run setupbinary || npm run build:addon",
     "prepublish": "npm run clean && tsc",
-    "setupbinary": "node ./scripts/setupBinary.js"
+    "setupbinary": "node ./scripts/setupBinary.js",
+    "postinstall": "node ./scripts/setupMultimedia.js"
   },
   "author": "ggtyler",
   "license": "LGPL-3.0-or-later",
