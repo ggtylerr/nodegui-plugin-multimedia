@@ -8,6 +8,7 @@
 #include "nvideowidget.hpp"
 
 class QVideoWidgetWrap : public Napi::ObjectWrap<QVideoWidgetWrap> {
+    QWIDGET_WRAPPED_METHODS_DECLARATION
 private:
     QPointer<NVideoWidget> instance;
 public:
@@ -25,6 +26,4 @@ public:
     // Wrapped slots
     Napi::Value setAspectRatioMode(const Napi::CallbackInfo& info);
     Napi::Value setFullScreen(const Napi::CallbackInfo& info);
-
-    QWIDGET_WRAPPED_METHODS_DECLARATION
 };

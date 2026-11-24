@@ -35,13 +35,18 @@ QVideoWidgetWrap::QVideoWidgetWrap(const Napi::CallbackInfo& info) : Napi::Objec
     if (info.Length() == 0) {
         this->instance = new NVideoWidget();
     } else if (info.Length() == 1) {
-        this->instance = new NVideoWidget(Helper::getQWidgetFromValue(info[0]));
-        if (env.IsExceptionPending()) return;
+        if (info[0].IsExternal()) {
+            // wrap external, totally not stolen from qlabel_wrap.cpp
+            this->instance = static_cast<NVideoWidget*>(info[0].As<Napi::External<QObject>>().Data());
+        } else {
+            this->instance = new NVideoWidget(Helper::getQWidgetFromValue(info[0]));
+            if (env.IsExceptionPending()) return;
+        }
     } else {
         Napi::TypeError::New(env, "Wrong number of arguments, refer to QVideoWidget()").ThrowAsJavaScriptException();
         return;
     }
-    this->rawData = extrautils::configureComponent(this->getInternalInstance());
+    this->rawData = extrautils::configureQWidget(this->getInternalInstance());
 }
 
 QVideoWidgetWrap::~QVideoWidgetWrap() {

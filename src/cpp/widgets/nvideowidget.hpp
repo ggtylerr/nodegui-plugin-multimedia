@@ -6,7 +6,7 @@
 
 #include "../helper.h"
 
-class NVideoWidget : public QVideoWidget, public EventWidget {
+class NVideoWidget : public QVideoWidget, public NodeWidget {
     Q_OBJECT
     NODEWIDGET_IMPLEMENTATIONS(QVideoWidget)
 public:

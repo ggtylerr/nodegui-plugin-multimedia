@@ -63,3 +63,10 @@ export {
     QVideoSinkSignals,
 } from "./lib/video/QVideoSink";
 export { Rotation } from "./lib/video/QtVideo";
+
+// Widget
+
+export {
+    QVideoWidget,
+    QVideoWidgetSignals,
+} from "./lib/widgets/QVideoWidget";
