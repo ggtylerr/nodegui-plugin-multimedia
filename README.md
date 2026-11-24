@@ -23,10 +23,38 @@ it likely won't be supported.
 | QPlaybackOptions.setProbeSize() | Function | qsizetype |
 | QVideoSink.rhi() | Function | QRhi |
 
-## TODO
-* Write typescript side
-* Test
-* Anything under TODO in comments
+## Usage
+
+[Add the plugin](https://www.npmjs.com/package/nodegui-plugin-multimedia) via your preferred package manager, then install Qt 6.10.2 with multimedia support and export its path to `QT_INSTALL_DIR`. If you want to use a different version, please see below in Building.
+
+As an example for Linux:
+
+```sh
+python -m pip install aqtinstall
+aqt install-qt linux desktop 6.10.2 linux_gcc64 -m qtmultimedia -O ~/Qt
+export QT_INSTALL_DIR="$HOME/Qt/6.10.2/gcc_64"
+```
+
+Windows:
+
+```powershell
+python -m pip install aqtinstall
+aqt install-qt windows desktop 6.10.2 win64_msvc2022_64 -m qtmultimedia -O C:\Qt
+$env:QT_INSTALL_DIR = "C:/Qt/6.10.2/msvc2022_64"
+```
+
+Mac:
+
+```sh
+python -m pip install aqtinstall
+aqt install-qt mac desktop 6.10.2 clang_64 -m qtmultimedia -O ~/Qt
+export QT_INSTALL_DIR="$HOME/Qt/6.10.2/macos"
+```
+
+Downloading and using a custom Qt install is required, as without it, no proper multimedia support will be available.
+<!-- TODO: See if there's a way to mitigate or workaround this. -->
+
+Packaging is not yet supported; `jam-pack-nodegui` really only works with itself and does not support custom Qt installs. If you're able to workaround this, please feel free to add a PR/issue so I can document this!
 
 ## Building
 Note that this project began when 6.10.2 was the latest and was built from there.
@@ -70,7 +98,7 @@ Therefore, arm64 support is *completely* untested. Theoretically, it should work
 python -m pip install aqtinstall
 aqt install-qt mac desktop 6.10.2 clang_64 -m qtmultimedia -O ~/Qt 
 # Export QT_INSTALL_DIR and install + build
-export QT_INSTALL_DIR="$HOME/Qt/6.10.2/clang_64"
+export QT_INSTALL_DIR="$HOME/Qt/6.10.2/macos"
 yarn
 yarn build
 ```
