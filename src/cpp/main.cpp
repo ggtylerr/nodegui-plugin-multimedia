@@ -5,6 +5,7 @@
 #include "audio/qaudiodevice_wrap.h"
 #include "audio/qaudioformat_wrap.h"
 #include "audio/qaudiooutput_wrap.h"
+#include "camera/qcameradevice_wrap.h"
 #include "camera/qcameraformat_wrap.h"
 #include "misc/qmediametadata_wrap.h"
 #include "misc/qmediatimerange_wrap.h"
@@ -24,6 +25,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QAudioFormatWrap::init(env, exports);
     QAudioOutputWrap::init(env, exports);
     // Camera
+    QCameraDeviceWrap::init(env, exports);
     QCameraFormatWrap::init(env, exports);
     // Misc
     QMediaMetaDataWrap::init(env, exports);

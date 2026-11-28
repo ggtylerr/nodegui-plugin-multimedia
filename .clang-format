@@ -4,9 +4,10 @@ IndentWidth: 4
 Language: Cpp
 
 PointerAlignment: Left
-AlwaysBreakAfterReturnType: None
+BreakAfterReturnType: Automatic
 SortIncludes: true
 
-# Fix alignment on class definitions
-AlignAfterOpenBracket: DontAlign
-Cpp11BracedListStyle: false
+# Fix alignment on class definitions (mostly)
+AlignAfterOpenBracket: false
+Cpp11BracedListStyle: Block
+OneLineFormatOffRegex: "DefineClass|InstanceMethod|StaticMethod|COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE"
