@@ -29,6 +29,8 @@ add_library(${PLUGIN_ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/audio/qaudiooutput_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/audio/naudiobufferoutput.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/audio/naudiooutput.hpp"
+    # Camera
+    "${PROJECT_SOURCE_DIR}/src/cpp/camera/qcameraformat_wrap.cpp"
     # Misc
     "${PROJECT_SOURCE_DIR}/src/cpp/misc/qmediametadata_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/misc/qmediatimerange_wrap.cpp"

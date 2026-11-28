@@ -5,6 +5,7 @@
 #include "audio/qaudiodevice_wrap.h"
 #include "audio/qaudioformat_wrap.h"
 #include "audio/qaudiooutput_wrap.h"
+#include "camera/qcameraformat_wrap.h"
 #include "misc/qmediametadata_wrap.h"
 #include "misc/qmediatimerange_wrap.h"
 #include "playback/qmediaplayer_wrap.h"
@@ -15,13 +16,15 @@
 #include "video/qvideosink_wrap.h"
 #include "widgets/qvideowidget_wrap.h"
 
-Napi::Object Main(Napi::Env env, Napi::Object exports) {\
+Napi::Object Main(Napi::Env env, Napi::Object exports) {
     // Audio
     QAudioBufferWrap::init(env, exports);
     QAudioBufferOutputWrap::init(env, exports);
     QAudioDeviceWrap::init(env, exports);
     QAudioFormatWrap::init(env, exports);
     QAudioOutputWrap::init(env, exports);
+    // Camera
+    QCameraFormatWrap::init(env, exports);
     // Misc
     QMediaMetaDataWrap::init(env, exports);
     QMediaTimeRangeWrap::init(env, exports);
